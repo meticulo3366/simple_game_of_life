@@ -1,15 +1,19 @@
 // using global variable because it is simple!
 var SEED
+var width = 0
+var height = 0
 
+//increment the game
 function playTurn(){
     SEED = Game.incrementGrid(SEED)
+    tableCreate(width,height)
 }
 
 // seed the game
 function seedGame(){
     // render the width and height
-    var width = document.getElementById("width").value
-    var height = document.getElementById("height").value
+    width = document.getElementById("width").value
+    height = document.getElementById("height").value
     //generate the values
     SEED = makeMatrix(width,height)
     console.log(SEED)
@@ -17,14 +21,17 @@ function seedGame(){
     tableCreate(width,height)
     // destroy the init screen
     document.getElementById('gameInit').innerHTML = ''
+    document.getElementById('playButton').style.display = 'block'
 }
 
-//inspiration:  http://jsfiddle.net/Ronny/Ud5vT/
 
+
+//inspiration:  http://jsfiddle.net/Ronny/Ud5vT/
 function makeBoolean(){
     return Math.random()<.5; // Readable, succint
 }
 
+//generate the initial seed
 function makeMatrix( rows, cols){
 
   var arr = new Array();
@@ -53,7 +60,7 @@ function tableCreate(w,h) {
     // wipe the old game if it exists from the screen
     body.innerHTML = ""
     var tbl = document.createElement('table');
-    tbl.style.width = '100%';
+    //tbl.style.width = '100%';
     tbl.setAttribute('border', '1');
     var tbdy = document.createElement('tbody');
     for (var i = 0; i < w; i++) {
@@ -63,9 +70,13 @@ function tableCreate(w,h) {
             //    break
            // } else {
                 var td = document.createElement('td');
-                td.appendChild(document.createTextNode( SEED[i][j] ))
-                td.setAttribute('rowSpan', '1');
-                td.setAttribute('collSpan', '1');
+                // make the living cells black
+                if( SEED[i][j] == true){
+                    td.setAttribute('bgcolor', 'black');
+                }
+
+                td.setAttribute('width', '100');
+                td.setAttribute('height', '100');
                 tr.appendChild(td)
             //}
         }
