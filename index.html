@@ -1,0 +1,40 @@
+<html>
+<head></head>
+<body>
+	<script src="game.js"></script>
+	<script src="displayLogic.js"></script>
+
+	<div id="gameInit">
+		play the game of life
+		<form>
+		Select collumn amount:
+		<select id="width">
+		  <option value=1>1</option>
+		  <option value=2>2</option>
+		  <option value=3>3</option>
+		  <option value=4>4</option>
+		</select>
+		
+		Select row amount:
+		<select id="height">
+		  <option value=1>1</option>
+		  <option value=2>2</option>
+		  <option value=3>3</option>
+		  <option value=4>4</option>
+		</select>
+
+		</form>
+
+		<button onclick="seedGame()">GENERATE GAME</button>
+
+	</div>
+
+	<div id="renderGame">
+
+	</div>
+
+	<button onclick="playTurn()">PLAY TURN</button>
+
+
+</body>
+</html>

@@ -1,4 +1,5 @@
         //init 5x5 grid as array object        
+        /*
         var baseLineTest = [   
                                 [1,1,1,1,1],
                                 [1,0,0,0,0], 
@@ -6,24 +7,28 @@
                                 [1,0,1,0,0], 
                                 [0,0,0,1,0]  
                             ]
+        */
 
         //empty init outside scope of loop        
-        var turn = baseLineTest        
+        //var turn = baseLineTest        
+        /*
         for( i=0;  i < 10; i++){            
             // increment turn                
             var turn = Game.incrementGrid( turn )            
             // print turn            
             console.log(turn)        
-        }
+        }*/
         
         var Game = {}
+
+
         
         Game.incrementGrid = function( gridItem ){                     
             // step through array row
             for(i =0; i < gridItem.length ; i++){       
 
             //step through array collumns
-                for(j=0; i<gridItem[i].length; i++){
+                for(j=0; j<gridItem[i].length; j++){
                     //compute all logic here
                     var cell = gridItem[i][j];
                     // cells living nearby
